@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nail Lux Studio | Luxury Nail Salon in Lagos</title>
+    <meta name="description" content="Nail Lux Studio is a luxury nail salon in Lagos offering pink ombre, French tips, chrome nails and more. Book your appointment online today.">
+    <link rel="icon" href="images/logo.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="images/logo.png" alt="Nail Lux Studio logo">
+        <h1>Nail Lux Studio</h1>
+    </div>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav>
+        <ul id="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="icons">
+        <div class="account-wrapper">
+            <button class="icon-box" id="account-toggle" aria-label="Account" aria-haspopup="true" aria-expanded="false">
+                <i class="fa-regular fa-user"></i>
+            </button>
+            <div class="account-panel" id="account-panel"></div>
+        </div>
+
+        <button class="icon-box search-icon" id="search-toggle" aria-label="Search services">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+
+        <button class="icon-box" id="wishlist-toggle" aria-label="Open wishlist">
+            <i class="fa-regular fa-heart"></i>
+            <span id="wishlist-count">0</span>
+        </button>
+
+        <button class="icon-box cart-icon" aria-label="Open cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span id="cart-count">0</span>
+        </button>
+    </div>
+</header>
+
+<!-- Auth modal (Log In / Sign Up) -->
+<div class="modal-overlay" id="auth-modal">
+    <div class="modal">
+        <button class="modal-close" id="auth-modal-close" aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="modal-tabs">
+            <button class="tab-btn active" data-tab="login" type="button">Log In</button>
+            <button class="tab-btn" data-tab="signup" type="button">Sign Up</button>
+        </div>
+
+        <form id="login-form" class="auth-form" novalidate>
+            <label class="visually-hidden" for="login-email">Email</label>
+            <input type="email" id="login-email" placeholder="Email" required>
+
+            <label class="visually-hidden" for="login-password">Password</label>
+            <input type="password" id="login-password" placeholder="Password" required>
+
+            <p class="form-error" id="login-error" aria-live="polite"></p>
+            <button type="submit" class="btn btn-primary btn-block">Log In</button>
+        </form>
+
+        <form id="signup-form" class="auth-form hidden" novalidate>
+            <label class="visually-hidden" for="signup-name">Full Name</label>
+            <input type="text" id="signup-name" placeholder="Full Name" required>
+
+            <label class="visually-hidden" for="signup-email">Email</label>
+            <input type="email" id="signup-email" placeholder="Email" required>
+
+            <label class="visually-hidden" for="signup-password">Password</label>
+            <input type="password" id="signup-password" placeholder="Password (min. 6 characters)" minlength="6" required>
+
+            <p class="form-error" id="signup-error" aria-live="polite"></p>
+            <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+        </form>
+
+        <p class="modal-note">Your account is currently saved in this browser only, until Nail Lux Studio connects a real server.</p>
+    </div>
+</div>
+
+<div class="cart-overlay" id="cart-overlay"></div>
+
+<section class="hero" id="home">
+    <video class="hero-video" autoplay muted loop playsinline poster="images/hero.jpg">
+        <source src="videos/hero-loop.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-text">
+        <p class="eyebrow">Luxury Nail Studio &middot; Lagos</p>
+        <h2>Luxury Nails for Every Occasion</h2>
+        <p>Discover beautiful nail designs crafted with elegance, creativity, and care.</p>
+        <a href="booking.html" class="btn btn-primary">Book Now</a>
+    </div>
+</section>
+
+<section class="services" id="services">
+    <p class="eyebrow center">What We Offer</p>
+    <h2>Trending Nail Designs</h2>
+
+    <label for="search" class="visually-hidden">Search nail designs</label>
+    <input type="text" id="search" placeholder="Search nail designs...">
+
+    <div class="services-container">
+
+        <div class="service-card">
+            <img src="images/nail1.jpg" alt="Luxury pink ombre nail design">
+            <h3>Luxury Pink Ombre</h3>
+            <div class="rating" aria-label="5 out of 5 stars">⭐⭐⭐⭐⭐</div>
+            <p class="price">₦12,000</p>
+            <div class="card-buttons">
+                <button class="wishlist-btn" data-name="Luxury Pink Ombre" data-price="12000">
+                    <i class="fa-regular fa-heart"></i>
+                    Wishlist
+                </button>
+                <button class="cart-btn" data-name="Luxury Pink Ombre" data-price="12000">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Add Service
+                </button>
+            </div>
+            <p class="in-cart-note"></p>
+        </div>
+
+        <div class="service-card">
+            <img src="images/nail2.jpg" alt="French tips nail design">
+            <h3>French Tips</h3>
+            <div class="rating" aria-label="5 out of 5 stars">⭐⭐⭐⭐⭐</div>
+            <p class="price">₦10,000</p>
+            <div class="card-buttons">
+                <button class="wishlist-btn" data-name="French Tips" data-price="10000">
+                    <i class="fa-regular fa-heart"></i>
+                    Wishlist
+                </button>
+                <button class="cart-btn" data-name="French Tips" data-price="10000">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Add Service
+                </button>
+            </div>
+            <p class="in-cart-note"></p>
+        </div>
+
+        <div class="service-card">
+            <img src="images/nail3.jpg" alt="Chrome nail design">
+            <h3>Chrome Nails</h3>
+            <div class="rating" aria-label="5 out of 5 stars">⭐⭐⭐⭐⭐</div>
+            <p class="price">₦15,000</p>
+            <div class="card-buttons">
+                <button class="wishlist-btn" data-name="Chrome Nails" data-price="15000">
+                    <i class="fa-regular fa-heart"></i>
+                    Wishlist
+                </button>
+                <button class="cart-btn" data-name="Chrome Nails" data-price="15000">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Add Service
+                </button>
+            </div>
+            <p class="in-cart-note"></p>
+        </div>
+
+    </div>
+</section>
+
+<section class="why-us">
+    <div class="panel">
+        <p class="eyebrow center">Why Nail Lux</p>
+        <h2>Why Choose Nail Lux Studio?</h2>
+
+        <div class="features">
+            <div class="feature-box">
+                <i class="fa-solid fa-award"></i>
+                <h3>Certified Experts</h3>
+                <p>Our experienced technicians deliver elegant nail designs with professional care.</p>
+            </div>
+
+            <div class="feature-box">
+                <i class="fa-solid fa-heart"></i>
+                <h3>500+ Happy Clients</h3>
+                <p>Our customers keep coming back because they love our quality and service.</p>
+            </div>
+
+            <div class="feature-box">
+                <i class="fa-solid fa-sparkles"></i>
+                <h3>Luxury Experience</h3>
+                <p>Relax in a clean, stylish, and welcoming salon environment.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials">
+    <p class="eyebrow center">Testimonials</p>
+    <h2>What Our Clients Say</h2>
+
+    <div class="testimonial-container">
+        <div class="testimonial">
+            <div class="rating" aria-label="5 out of 5 stars">⭐⭐⭐⭐⭐</div>
+            <p>"The best nail studio I've ever visited."</p>
+            <h4>&mdash; Sarah</h4>
+        </div>
+
+        <div class="testimonial">
+            <div class="rating" aria-label="5 out of 5 stars">⭐⭐⭐⭐⭐</div>
+            <p>"Beautiful designs and amazing customer service."</p>
+            <h4>&mdash; Jennifer</h4>
+        </div>
+
+        <div class="testimonial">
+            <div class="rating" aria-label="5 out of 5 stars">⭐⭐⭐⭐⭐</div>
+            <p>"I always leave feeling confident."</p>
+            <h4>&mdash; Amanda</h4>
+        </div>
+    </div>
+</section>
+
+<section class="gallery" id="gallery">
+    <p class="eyebrow center">Portfolio</p>
+    <h2>Our Recent Work</h2>
+
+    <div class="gallery-grid">
+        <img src="images/nail1.jpg" alt="Luxury pink ombre nail design">
+        <img src="images/nail2.jpg" alt="French tips nail design">
+        <img src="images/nail3.jpg" alt="Chrome nail design">
+        <img src="images/nail1.jpg" alt="Pink ombre manicure close-up">
+        <img src="images/nail2.jpg" alt="Classic French manicure close-up">
+        <img src="images/nail3.jpg" alt="Chrome finish manicure close-up">
+    </div>
+</section>
+
+<section class="team">
+    <div class="panel">
+        <p class="eyebrow center">Our Artists</p>
+        <h2>Meet Our Experts</h2>
+
+        <div class="team-container">
+            <div class="member">
+                <img src="images/team1.jpg" alt="Jessica, Senior Nail Artist at Nail Lux Studio">
+                <h3>Jessica</h3>
+                <p>Senior Nail Artist</p>
+            </div>
+
+            <div class="member">
+                <img src="images/team2.jpg" alt="Sophia, Nail Technician at Nail Lux Studio">
+                <h3>Sophia</h3>
+                <p>Nail Technician</p>
+            </div>
+
+            <div class="member">
+                <img src="images/team3.jpg" alt="Grace, Creative Designer at Nail Lux Studio">
+                <h3>Grace</h3>
+                <p>Creative Designer</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <div class="panel">
+        <p class="eyebrow center">Get In Touch</p>
+        <h2>Contact Us</h2>
+
+        <div class="contact-list">
+            <p><i class="fa-solid fa-location-dot"></i> Lagos, Nigeria</p>
+            <p><i class="fa-solid fa-phone"></i> +234 800 000 0000</p>
+            <p><i class="fa-solid fa-envelope"></i> hello@nailluxstudio.com</p>
+        </div>
+
+        <a href="booking.html" class="btn btn-primary">Book an Appointment</a>
+    </div>
+</section>
+
+<section class="faq">
+    <p class="eyebrow center">FAQ</p>
+    <h2>Frequently Asked Questions</h2>
+
+    <details>
+        <summary>How long do nails last?</summary>
+        <p>Normally between 3-4 weeks.</p>
+    </details>
+
+    <details>
+        <summary>Do I need an appointment?</summary>
+        <p>Appointments are recommended.</p>
+    </details>
+
+    <details>
+        <summary>Can I book online?</summary>
+        <p>Yes, using our booking page.</p>
+    </details>
+</section>
+
+<div class="cart-sidebar" id="cart-sidebar" aria-label="Shopping cart">
+    <div class="cart-header">
+        <h2>Your Cart</h2>
+        <button class="close-cart" id="close-cart" aria-label="Close cart">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+    <div id="cart-items">
+        <p class="cart-empty">Your cart is empty.</p>
+    </div>
+
+    <div class="promo-row">
+        <label class="visually-hidden" for="promo-code">Promo code</label>
+        <input type="text" id="promo-code" placeholder="Promo code">
+        <button id="apply-promo" class="btn-promo" type="button">Apply</button>
+    </div>
+    <p class="promo-message" id="promo-message" aria-live="polite"></p>
+
+    <div class="cart-summary">
+        <p class="summary-row"><span>Subtotal</span><span id="cart-subtotal">₦0</span></p>
+        <p class="summary-row discount-row" id="discount-row" hidden><span>Discount</span><span id="cart-discount">-₦0</span></p>
+        <p class="summary-row total-row"><span>Total</span><span>₦<span id="cart-total">0</span></span></p>
+    </div>
+
+    <a href="booking.html">
+        <button class="checkout-btn">Proceed to Booking</button>
+    </a>
+</div>
+
+<div class="cart-sidebar" id="wishlist-sidebar" aria-label="Wishlist">
+    <div class="cart-header">
+        <h2>Your Wishlist</h2>
+        <button class="close-cart" id="close-wishlist" aria-label="Close wishlist">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+    <div id="wishlist-items">
+        <p class="cart-empty">Your wishlist is empty.</p>
+    </div>
+</div>
+
+<footer>
+    <h2>Nail Lux Studio</h2>
+    <p>Luxury Nails &bull; Beauty &bull; Confidence</p>
+
+    <div class="socials">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+    </div>
+
+    <p class="copyright">&copy; 2026 Nail Lux Studio. All rights reserved.</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
