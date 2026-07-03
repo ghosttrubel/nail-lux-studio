@@ -9,145 +9,134 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body>
+<body class="booking-page">
+    <header class="site-header" id="site-header">
+        <a class="brand" href="index.html" aria-label="Nail Lux Studio home">
+            <img src="images/logo.png" alt="Nail Lux Studio logo">
+            <span>Nail Lux Studio</span>
+        </a>
 
-<header>
-    <div class="logo">
-        <img src="images/logo.png" alt="Nail Lux Studio logo">
-        <h1>Nail Lux Studio</h1>
-    </div>
-
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-
-    <nav>
-        <ul id="nav-menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#services">Services</a></li>
-            <li><a href="index.html#gallery">Gallery</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <div class="icons">
-        <div class="account-wrapper">
-            <button class="icon-box" id="account-toggle" aria-label="Account" aria-haspopup="true" aria-expanded="false">
-                <i class="fa-regular fa-user"></i>
-            </button>
-            <div class="account-panel" id="account-panel"></div>
-        </div>
-    </div>
-</header>
-
-<!-- Auth modal (Log In / Sign Up) -->
-<div class="modal-overlay" id="auth-modal">
-    <div class="modal">
-        <button class="modal-close" id="auth-modal-close" aria-label="Close">
-            <i class="fa-solid fa-xmark"></i>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+            <i class="fa-solid fa-bars"></i>
         </button>
 
-        <div class="modal-tabs">
-            <button class="tab-btn active" data-tab="login" type="button">Log In</button>
-            <button class="tab-btn" data-tab="signup" type="button">Sign Up</button>
-        </div>
+        <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+            <a href="index.html#about">About</a>
+            <a href="index.html#services">Services</a>
+            <a href="index.html#gallery">Gallery</a>
+            <a href="index.html#reviews">Reviews</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
 
-        <form id="login-form" class="auth-form" novalidate>
-            <label class="visually-hidden" for="login-email">Email</label>
-            <input type="email" id="login-email" placeholder="Email" required>
+        <a class="header-cta" href="booking.html">
+            <i class="fa-regular fa-calendar-check"></i>
+            Book
+        </a>
+    </header>
 
-            <label class="visually-hidden" for="login-password">Password</label>
-            <input type="password" id="login-password" placeholder="Password" required>
-
-            <p class="form-error" id="login-error" aria-live="polite"></p>
-            <button type="submit" class="btn btn-primary btn-block">Log In</button>
-        </form>
-
-        <form id="signup-form" class="auth-form hidden" novalidate>
-            <label class="visually-hidden" for="signup-name">Full Name</label>
-            <input type="text" id="signup-name" placeholder="Full Name" required>
-
-            <label class="visually-hidden" for="signup-email">Email</label>
-            <input type="email" id="signup-email" placeholder="Email" required>
-
-            <label class="visually-hidden" for="signup-password">Password</label>
-            <input type="password" id="signup-password" placeholder="Password (min. 6 characters)" minlength="6" required>
-
-            <p class="form-error" id="signup-error" aria-live="polite"></p>
-            <button type="submit" class="btn btn-primary btn-block">Create Account</button>
-        </form>
-
-        <p class="modal-note">Your account is currently saved in this browser only, until Nail Lux Studio connects a real server.</p>
-    </div>
-</div>
-
-<section class="booking">
-    <p class="eyebrow center">Reserve Your Slot</p>
-    <h1>Book Your Appointment</h1>
-    <p class="booking-subtext">Fill in your details and we'll confirm your slot shortly.</p>
-
-    <form id="booking-form" novalidate>
-        <div class="field">
-            <label for="fullname" class="visually-hidden">Full Name</label>
-            <input type="text" id="fullname" name="fullname" placeholder="Full Name" required>
-        </div>
-
-        <div class="field">
-            <label for="email" class="visually-hidden">Email</label>
-            <input type="email" id="email" name="email" placeholder="Email" required>
-        </div>
-
-        <div class="field">
-            <label for="phone" class="visually-hidden">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
-        </div>
-
-        <div class="field-row">
-            <div class="field">
-                <label for="date" class="visually-hidden">Preferred Date</label>
-                <input type="date" id="date" name="date" required>
+    <main>
+        <section class="booking-hero">
+            <div>
+                <p class="eyebrow">Appointment Request</p>
+                <h1>Tell us what you would love to book.</h1>
+                <p>Share your service, preferred date and any design notes. Nail Lux Studio will confirm availability before your appointment is final.</p>
             </div>
+        </section>
 
-            <div class="field">
-                <label for="time" class="visually-hidden">Preferred Time</label>
-                <input type="time" id="time" name="time" required>
-            </div>
-        </div>
+        <section class="booking-section">
+            <form class="booking-form" id="booking-form" novalidate>
+                <div class="form-grid">
+                    <label>
+                        Full name
+                        <input type="text" id="full-name" name="fullName" autocomplete="name" required>
+                    </label>
 
-        <div class="field">
-            <label for="notes" class="visually-hidden">Additional Notes</label>
-            <textarea id="notes" name="notes" rows="4" placeholder="Additional Notes"></textarea>
-        </div>
+                    <label>
+                        Phone or WhatsApp
+                        <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+                    </label>
 
-        <button type="submit" class="btn btn-primary btn-block">Book Appointment</button>
-    </form>
+                    <label>
+                        Email address
+                        <input type="email" id="email" name="email" autocomplete="email" required>
+                    </label>
 
-    <div id="booking-success" class="booking-success" role="status">
-        <i class="fa-solid fa-circle-check"></i>
-        <p>Thanks! Your appointment request has been received. We'll contact you shortly to confirm.</p>
-    </div>
-</section>
+                    <label>
+                        Service
+                        <select id="service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option>Manicure</option>
+                            <option>Pedicure</option>
+                            <option>Gel Manicure</option>
+                            <option>Acrylic Full Set</option>
+                            <option>BIAB Overlay</option>
+                            <option>Nail Art and Extras</option>
+                            <option>Removal or Repair</option>
+                        </select>
+                    </label>
 
-<footer>
-    <h2>Nail Lux Studio</h2>
-    <p>Luxury Nails &bull; Beauty &bull; Confidence</p>
+                    <label>
+                        Preferred date
+                        <input type="date" id="date" name="date" required>
+                    </label>
 
-    <div class="socials">
-        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-    </div>
+                    <label>
+                        Preferred time
+                        <select id="time" name="time" required>
+                            <option value="">Select a time</option>
+                            <option>9:00 AM</option>
+                            <option>10:00 AM</option>
+                            <option>11:00 AM</option>
+                            <option>12:00 PM</option>
+                            <option>1:00 PM</option>
+                            <option>2:00 PM</option>
+                            <option>3:00 PM</option>
+                            <option>4:00 PM</option>
+                            <option>5:00 PM</option>
+                        </select>
+                    </label>
+                </div>
 
-    <p class="copyright">&copy; 2026 Nail Lux Studio. All rights reserved.</p>
-</footer>
+                <label>
+                    Design notes
+                    <textarea id="notes" name="notes" rows="5" placeholder="Tell us about your preferred shape, color, art, occasion or inspiration photo."></textarea>
+                </label>
 
-<script src="js/script.js"></script>
+                <p class="form-message" id="booking-message" aria-live="polite"></p>
+
+                <button class="btn btn-primary" type="submit">
+                    <i class="fa-regular fa-paper-plane"></i>
+                    Send appointment request
+                </button>
+            </form>
+
+            <aside class="booking-aside">
+                <h2>Before your visit</h2>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Arrive with clean hands and any design references.</li>
+                    <li><i class="fa-solid fa-check"></i> Mention removals or repairs while booking.</li>
+                    <li><i class="fa-solid fa-check"></i> Book detailed nail art with enough time.</li>
+                </ul>
+
+                <div class="aside-contact">
+                    <span><i class="fa-solid fa-phone"></i> +234 800 000 0000</span>
+                    <span><i class="fa-solid fa-location-dot"></i> Lagos, Nigeria</span>
+                    <span><i class="fa-regular fa-clock"></i> Mon - Sat, 9:00 AM - 7:00 PM</span>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <footer class="site-footer compact-footer">
+        <p>&copy; 2026 Nail Lux Studio. All rights reserved.</p>
+        <a href="index.html">Back to home</a>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
