@@ -54,15 +54,18 @@ if (bookingForm && bookingMessage){
             return;
         }
 
-        const savedRequests = JSON.parse(localStorage.getItem("nailLuxBookings") || "[]");
-        savedRequests.push({
-            ...request,
-            createdAt:new Date().toISOString()
-        });
-        localStorage.setItem("nailLuxBookings", JSON.stringify(savedRequests));
-
-        bookingMessage.textContent = "Thank you. Your appointment request has been saved and is ready for confirmation.";
-        bookingMessage.classList.add("success");
-        bookingForm.reset();
-    });
+        fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(new FormData(bookingForm)).toString()
+})
+.then(() => {
+    bookingMessage.textContent = "Thank you. Your appointment request has been sent.";
+    bookingMessage.classList.add("success");
+    bookingForm.reset();
+})
+.catch(() => {
+    bookingMessage.textContent = "Something went wrong. Please try again or contact us directly.";
+    bookingMessage.classList.remove("success");
+});
 }
